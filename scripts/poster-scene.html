@@ -1,0 +1,40 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#070405}
+.scene{position:absolute;inset:0;background:
+ radial-gradient(ellipse 620px 520px at 68% 44%, rgba(196,40,52,.55), rgba(120,18,30,.22) 45%, transparent 75%),
+ radial-gradient(ellipse 1100px 700px at 75% 30%, rgba(90,20,24,.35), transparent 70%),
+ linear-gradient(180deg,#0c0708,#050303)}
+.beam{position:absolute;left:1080px;top:-200px;width:520px;height:1200px;transform:rotate(18deg);background:linear-gradient(90deg,transparent,rgba(255,220,190,.10) 40%,rgba(255,230,200,.16) 50%,rgba(255,220,190,.08) 60%,transparent);filter:blur(18px)}
+.plinth{position:absolute;left:760px;right:-40px;top:846px;bottom:0;background:linear-gradient(180deg,#1a1011 0,#0a0607 14%,#050303 100%);border-top:1px solid rgba(255,200,170,.18)}
+.plinth::before{content:'';position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,rgba(255,190,160,.5) 55%,transparent);filter:blur(1px)}
+.b{position:absolute;left:1066px;top:230px;width:420px}
+.b svg{width:100%;height:auto;display:block;filter:drop-shadow(0 30px 60px rgba(0,0,0,.6))}
+.refl{position:absolute;left:1066px;top:852px;width:420px;transform:scaleY(-1);opacity:.16;-webkit-mask-image:linear-gradient(0deg,#000,transparent 38%);mask-image:linear-gradient(0deg,#000,transparent 38%)}
+.refl svg{width:100%;display:block}
+svg.smoke{position:absolute;inset:0}
+.dust i{position:absolute;border-radius:50%;background:#f3d3b0}
+</style></head><body>
+<div class="scene"></div><div class="beam"></div>
+<svg class="smoke" width="1920" height="1080"><defs>
+<filter id="t" x="-50%" y="-50%" width="200%" height="200%"><feTurbulence type="fractalNoise" baseFrequency="0.006 0.012" numOctaves="4" seed="7"/><feDisplacementMap in="SourceGraphic" scale="180"/><feGaussianBlur stdDeviation="14"/></filter></defs>
+<g filter="url(#t)" fill="#f1c9b8">
+<ellipse cx="1180" cy="760" rx="260" ry="46" opacity=".16"/>
+<ellipse cx="1420" cy="700" rx="200" ry="40" opacity=".12"/>
+<ellipse cx="1300" cy="520" rx="120" ry="160" opacity=".07"/>
+<ellipse cx="980" cy="820" rx="220" ry="30" opacity=".12"/>
+<ellipse cx="1600" cy="600" rx="140" ry="200" opacity=".06"/>
+</g></svg>
+<div class="refl" id="refl"></div>
+<div class="b" id="b"></div>
+<div class="plinth" style="z-index:-0;display:none"></div>
+<div class="dust" id="dust"></div>
+<script src="../js/bottle.js"></script>
+<script>
+const s=bottleSVG({code:'OD 06',liquid:['#E27A62','#6E0C18'],size:'100 ML',fill:.84});
+document.getElementById('b').innerHTML=s; document.getElementById('refl').innerHTML=bottleSVG({code:'OD 06',liquid:['#E27A62','#6E0C18'],size:'100 ML',fill:.84});
+let h='';let r=7;const rnd=()=>{r=(r*9301+49297)%233280;return r/233280};
+for(let i=0;i<70;i++){const x=900+rnd()*1000,y=80+rnd()*760,sz=1+rnd()*3.2;h+=`<i style="left:${x}px;top:${y}px;width:${sz}px;height:${sz}px;opacity:${(.15+rnd()*.5).toFixed(2)};filter:blur(${(rnd()*1.5).toFixed(1)}px)"></i>`}
+document.getElementById('dust').innerHTML=h;
+</script></body></html>

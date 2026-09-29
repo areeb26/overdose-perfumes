@@ -1,0 +1,7 @@
+.vercel/
+node_modules/
+.DS_Store
+.vercel
+frames/lg/
+frames/sm/
+frames/_headers

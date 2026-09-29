@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Overdose: extrait perfumes inspired by the icons · Pakistan</title>
+  <meta name="description" content="Overdose makes extrait-strength fragrances inspired by famous designer scents, from Rs 690. Cash on delivery across Pakistan; order on WhatsApp." />
+  <meta name="theme-color" content="#0B0708" />
+  <meta property="og:title" content="Overdose: smell expensive, pay less" />
+  <meta property="og:description" content="Extrait-strength perfumes inspired by the icons. Cash on delivery across Pakistan." />
+  <meta property="og:image" content="assets/img/og.jpg" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/config.js"></script>
+</head>
+<body class="is-loading in-hero">
+
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <p class="preloader__brand">Overdose</p>
+    <div class="preloader__bar"><i id="preloaderBar"></i></div>
+    <p class="preloader__pct"><span id="preloaderPct">0</span>%</p>
+  </div>
+
+  <header class="nav" id="nav">
+    <a href="#top" class="logo" aria-label="Overdose home"><span class="logo__word">Overdose</span><span class="logo__rx">Extrait</span></a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#shop">Shop</a>
+      <a href="#finder">Scent finder</a>
+      <a href="#sets">Sets</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">Delivery</a>
+    </nav>
+    <div class="nav__actions">
+      <a class="nav__wa hide-sm" href="#" target="_blank" rel="noopener" data-wa>WhatsApp</a>
+      <button type="button" class="bag-btn" id="openCart" aria-label="Open your bag">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Z" /><path d="M9 8V6a3 3 0 0 1 6 0v2" /></svg>
+        <span class="hide-xs">Bag</span>
+        <b class="bag-count" id="cartCount">0</b>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ HERO: chapters fade in/out over the film between data-in and data-out (scroll progress 0–1) ============ -->
+    <section class="hero" id="hero" aria-label="Overdose">
+      <div class="hero__stage">
+        <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
+        <div class="hero__shade" aria-hidden="true"></div>
+
+        <div class="chapter chapter--intro" data-in="0" data-out="0.1">
+          <p class="eyebrow"><span class="dot"></span> Extrait strength · Inspired by the icons</p>
+          <h1 class="hero__title">Smell expensive.<br /><em>Pay less.</em></h1>
+          <p class="hero__lede">Our own 30% extrait perfumes, modelled on the designer scents you already love. Testers from Rs 690, cash on delivery anywhere in Pakistan.</p>
+          <div class="hero__cta">
+            <a href="#shop" class="btn btn--light">Shop<span class="hide-xs">&nbsp;the</span>&nbsp;scents</a>
+            <a href="#finder" class="btn btn--ghost">Find my scent</a>
+          </div>
+        </div>
+
+        <div class="chapter chapter--card chapter--left" data-in="0.2" data-out="0.23">
+          <p class="card__tag">01 / The dose</p>
+          <h2>Extrait<br /><em>strength.</em></h2>
+          <dl class="facts">
+            <div><dt>Perfume oil</dt><dd>30%</dd></div>
+            <div><dt>Wear</dt><dd>8–12 h</dd></div>
+            <div><dt>Sprays</dt><dd>3</dd></div>
+          </dl>
+        </div>
+
+        <div class="chapter chapter--card chapter--right" data-in="0.32" data-out="0.4">
+          <p class="card__tag">02 / The icons</p>
+          <h2>Inspired by<br /><em>the greats.</em></h2>
+          <dl class="facts">
+            <div><dt>Scents</dt><dd>12</dd></div>
+            <div><dt>Sizes</dt><dd>3</dd></div>
+            <div><dt>From</dt><dd>Rs 690</dd></div>
+          </dl>
+        </div>
+
+        <div class="chapter chapter--card chapter--left" data-in="0.52" data-out="0.72">
+          <p class="card__tag">03 / The delivery</p>
+          <h2>Open it.<br /><em>Then pay.</em></h2>
+          <dl class="facts">
+            <div><dt>Payment</dt><dd>COD</dd></div>
+            <div><dt>Ships</dt><dd>Same day</dd></div>
+            <div><dt>Arrives</dt><dd>1–5 days</dd></div>
+          </dl>
+        </div>
+
+        <div class="chapter chapter--final chapter--final-left" data-in="0.86" data-out="1.01">
+          <h2 class="hero__final">Find your<br /><em>dose.</em></h2>
+          <a href="#shop" class="btn btn--light btn--lg">Shop the collection →</a>
+        </div>
+
+        <!-- Signature: a dosing gauge that fills as you scroll -->
+        <div class="gauge" aria-hidden="true">
+          <span class="gauge__top">100 ml</span>
+          <div class="gauge__tube"><i id="gaugeFill"></i></div>
+          <span class="gauge__val"><b id="gaugeVal">0</b> ml</span>
+        </div>
+
+        <div class="hero__hint" id="heroHint" aria-hidden="true"><span>Scroll</span><i></i></div>
+      </div>
+    </section>
+
+    <!-- ============ TRUST STRIP ============ -->
+    <section class="strip" aria-label="Why Overdose">
+      <ul class="strip__list">
+        <li><b>30%</b><span>extrait oils in every bottle</span></li>
+        <li><b>COD</b><span>open the parcel, then pay</span></li>
+        <li><b data-dispatch-short>Same day</b><span data-dispatch>dispatch before 5 PM</span></li>
+        <li><b>Free</b><span>delivery over <span data-free></span></span></li>
+      </ul>
+    </section>
+
+    <!-- ============ SHOP ============ -->
+    <section class="section shop" id="shop">
+      <header class="section__head reveal">
+        <p class="eyebrow">The collection</p>
+        <h2 class="section__title">Twelve icons,<br /><em>re-dosed.</em></h2>
+        <p class="section__lede">Every scent is our own extrait, blended to sit close to the original. Try a 10 ml tester first, or go straight for the 100 ml.</p>
+      </header>
+
+      <div class="toolbar" id="toolbar">
+        <div class="chips" id="chips" role="group" aria-label="Filter scents" data-lenis-prevent></div>
+        <div class="toolbar__row">
+          <label class="search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="m20 20-4.2-4.2" /></svg>
+            <input type="search" id="search" placeholder="Search a scent, note or designer…" aria-label="Search scents" autocomplete="off" />
+          </label>
+          <label class="sort"><span class="sr-only">Sort</span>
+            <select id="sort" aria-label="Sort scents">
+              <option value="pop">Most loved</option>
+              <option value="low">Price: low to high</option>
+              <option value="high">Price: high to low</option>
+              <option value="wear">Longest wear</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="products" id="products"></div>
+      <p class="empty" id="empty" hidden>No scent matches that. Try “vanilla”, “oud” or “Sauvage”.</p>
+    </section>
+
+    <!-- ============ SCENT FINDER ============ -->
+    <section class="finder" id="finder">
+      <div class="finder__inner">
+        <header class="finder__head reveal">
+          <p class="eyebrow">Scent finder</p>
+          <h2 class="section__title">Four questions.<br /><em>Three matches.</em></h2>
+          <p class="section__lede">Not sure where to start? Tell us who it’s for and how you’ll wear it, and we’ll pick the three scents most likely to become your signature.</p>
+        </header>
+        <div class="quiz reveal" id="quiz" aria-live="polite">
+          <div class="quiz__top">
+            <span class="quiz__step" id="quizStep">Question 1 of 4</span>
+            <div class="quiz__bar"><i id="quizBar"></i></div>
+          </div>
+          <div id="quizBody"></div>
+          <div class="quiz__nav">
+            <button type="button" class="link-btn" id="quizBack" hidden>← Back</button>
+            <button type="button" class="link-btn" id="quizReset" hidden>Start over</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SETS ============ -->
+    <section class="section sets" id="sets">
+      <header class="section__head reveal">
+        <p class="eyebrow">Discovery sets & gift boxes</p>
+        <h2 class="section__title">Try five.<br /><em>Gift three.</em></h2>
+        <p class="section__lede">Bundled, boxed and cheaper than buying them one by one. Every set can be gift-wrapped with a handwritten card at checkout.</p>
+      </header>
+      <div class="sets__grid" id="setsGrid"></div>
+    </section>
+
+    <!-- ============ REVIEWS ============ -->
+    <section class="section reviews" id="reviews">
+      <header class="section__head reviews__head reveal">
+        <div>
+          <p class="eyebrow">Reviews</p>
+          <h2 class="section__title">Side effects:<br /><em>compliments.</em></h2>
+        </div>
+        <div class="score">
+          <p class="score__num"><b data-count="48" data-div="10">0</b><span>/ 5</span></p>
+          <p class="score__sub">from <b>2,800+</b> orders</p>
+          <ul class="bars" id="bars"></ul>
+        </div>
+      </header>
+      <div class="reviews__list" id="reviewsList"></div>
+    </section>
+
+    <!-- ============ DELIVERY + FAQ ============ -->
+    <section class="section faq" id="faq">
+      <header class="section__head reveal">
+        <p class="eyebrow">Delivery & questions</p>
+        <h2 class="section__title">Everywhere in<br /><em>Pakistan.</em></h2>
+      </header>
+      <div class="faq__grid">
+        <div class="zones reveal" id="zones"></div>
+        <div class="qa reveal" id="qa"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__top">
+      <div>
+        <p class="footer__brand">Overdose</p>
+        <p class="footer__tag">Extrait-strength perfumes inspired by the icons. Blended in <span data-city></span>, delivered across Pakistan.</p>
+      </div>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="#shop">Shop</a><a href="#finder">Scent finder</a><a href="#sets">Sets</a><a href="#faq">Delivery</a>
+        <a href="#" target="_blank" rel="noopener" data-wa>WhatsApp <span data-phone></span></a>
+      </nav>
+    </div>
+    <p class="footer__legal">Overdose fragrances are our own compositions. Designer names are used only to describe a scent’s character; they are trademarks of their owners, and Overdose is not affiliated with or endorsed by them.</p>
+    <p class="footer__small">© 2026 Overdose.</p>
+  </footer>
+
+  <a class="fab-wa" href="#" target="_blank" rel="noopener" aria-label="WhatsApp Overdose" data-wa>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 .9c.3.1.5.2.5.3.1.2.1.8-.2 1.4Z"/></svg>
+  </a>
+
+  <button type="button" class="order-bar" id="orderBar" hidden>
+    <span class="order-bar__count" id="barCount">0</span>
+    <span>View your bag</span>
+    <b id="barTotal">Rs 0</b>
+  </button>
+
+  <!-- Product sheet -->
+  <dialog class="sheet" id="sheet" aria-labelledby="sheetTitle">
+    <form class="sheet__form" id="sheetForm">
+      <div class="sheet__scroll" data-lenis-prevent>
+        <button type="button" class="icon-btn sheet__close" data-close aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" /></svg></button>
+        <div class="sheet__grid">
+          <div class="sheet__media" id="sheetMedia"></div>
+          <div class="sheet__body">
+            <p class="sheet__code" id="sheetCode"></p>
+            <h2 id="sheetTitle"></h2>
+            <p class="sheet__inspired" id="sheetInspired"></p>
+            <p class="sheet__desc" id="sheetDesc"></p>
+            <div class="pyramid" id="sheetNotes"></div>
+            <div class="meters" id="sheetMeters"></div>
+            <div class="sheet__chips" id="sheetChips"></div>
+            <fieldset class="opt-group"><legend>Choose size</legend><div class="sizes" id="sheetSizes"></div></fieldset>
+          </div>
+        </div>
+      </div>
+      <div class="sheet__foot">
+        <div class="qty" role="group" aria-label="Quantity">
+          <button type="button" data-q="-1" aria-label="One less">−</button>
+          <output id="sheetQty">1</output>
+          <button type="button" data-q="1" aria-label="One more">+</button>
+        </div>
+        <button type="submit" class="btn btn--dark sheet__add">Add to bag · <span id="sheetPrice">Rs 0</span></button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Discovery set builder -->
+  <dialog class="sheet sheet--build" id="build" aria-labelledby="buildTitle">
+    <form class="sheet__form" id="buildForm">
+      <div class="sheet__scroll" data-lenis-prevent>
+        <button type="button" class="icon-btn sheet__close" data-close aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" /></svg></button>
+        <div class="build__body">
+          <p class="sheet__code">Discovery Set</p>
+          <h2 id="buildTitle">Pick your <em>five.</em></h2>
+          <p class="sheet__desc">Five 10 ml testers of your choice in one box. <span id="buildPicked">0 of 5 picked</span></p>
+          <div class="build__list" id="buildList"></div>
+        </div>
+      </div>
+      <div class="sheet__foot">
+        <p class="build__price"><b id="buildPrice">Rs 0</b><s id="buildWas"></s></p>
+        <button type="submit" class="btn btn--dark sheet__add" id="buildAdd" disabled>Pick 5 scents</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Bag / checkout drawer -->
+  <div class="scrim" id="scrim" hidden></div>
+  <aside class="drawer" id="drawer" aria-labelledby="drawerTitle" aria-hidden="true" inert>
+    <header class="drawer__head">
+      <h2 id="drawerTitle">Your bag</h2>
+      <button type="button" class="icon-btn" id="closeCart" aria-label="Close your bag"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" /></svg></button>
+    </header>
+
+    <div class="drawer__scroll" data-lenis-prevent>
+      <div id="orderView">
+        <p class="dispatch-note" data-dispatch-long></p>
+        <div class="cart-empty" id="cartEmpty">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Z" /><path d="M9 8V6a3 3 0 0 1 6 0v2" /></svg>
+          <p>Your bag is empty.</p>
+          <button type="button" class="btn btn--ghost-dark btn--sm" id="browse">Browse the scents</button>
+        </div>
+        <ul class="lines" id="lines"></ul>
+
+        <div class="free" id="freeBar" hidden><p id="freeText"></p><i><b id="freeFill"></b></i></div>
+
+        <form class="checkout" id="checkout" novalidate hidden>
+          <h3>Delivery details</h3>
+          <div class="field-row">
+            <label class="field"><span>Name</span><input name="name" required autocomplete="name" /></label>
+            <label class="field"><span>Phone</span><input name="phone" type="tel" inputmode="tel" required placeholder="03xx-xxxxxxx" autocomplete="tel" /></label>
+          </div>
+          <div class="field-row">
+            <label class="field"><span>Delivery zone</span>
+              <select name="zone" id="zoneSelect" required><option value="">Choose your zone</option></select>
+            </label>
+            <label class="field"><span>City / town</span><input name="city" required autocomplete="address-level2" placeholder="e.g. Hyderabad" /></label>
+          </div>
+          <label class="field"><span>Full address</span><textarea name="address" rows="2" required autocomplete="street-address" placeholder="House / flat no., street, area"></textarea></label>
+          <label class="field"><span>Payment</span>
+            <select name="pay">
+              <option>Cash on delivery</option>
+              <option>JazzCash / Easypaisa</option>
+              <option>Bank transfer</option>
+            </select>
+          </label>
+          <label class="check">
+            <input type="checkbox" name="gift" id="giftCheck" />
+            <span><b>Gift wrap it</b> · black box, ribbon and a handwritten card <em data-gift-price></em></span>
+          </label>
+          <label class="field" id="giftNote" hidden><span>Message for the card</span><textarea name="giftmsg" rows="2" maxlength="160" placeholder="Happy anniversary! Love, A."></textarea></label>
+          <label class="field"><span>Note <small>Optional</small></span><input name="note" maxlength="140" placeholder="e.g. call before delivery" /></label>
+        </form>
+      </div>
+
+      <div class="done" id="doneView" hidden>
+        <svg viewBox="0 0 64 64" class="done__mark" aria-hidden="true"><circle cx="32" cy="32" r="30" /><path d="M20 33l8 8 16-18" /></svg>
+        <h3>Almost yours, <span id="doneName"></span>.</h3>
+        <p>WhatsApp has opened with order <b id="doneRef"></b>. Press send and we’ll confirm your dispatch time right away.</p>
+        <a class="btn btn--dark btn--block" id="doneLink" target="_blank" rel="noopener">WhatsApp didn’t open? Tap here</a>
+        <button type="button" class="btn btn--ghost-dark btn--block" id="newOrder">Keep shopping</button>
+      </div>
+    </div>
+
+    <footer class="drawer__foot" id="drawerFoot">
+      <dl class="totals">
+        <div><dt>Subtotal</dt><dd id="tSub">Rs 0</dd></div>
+        <div><dt>Delivery</dt><dd id="tFee">—</dd></div>
+        <div id="tGiftRow" hidden><dt>Gift wrap</dt><dd id="tGift">Rs 0</dd></div>
+        <div class="totals__grand"><dt>Total</dt><dd id="tTotal">Rs 0</dd></div>
+      </dl>
+      <button type="button" class="btn btn--dark btn--block" id="checkoutBtn" disabled>Your bag is empty</button>
+      <p class="foot__note">Cash on delivery · open the parcel before you pay</p>
+    </footer>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js" defer></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/bottle.js" defer></script>
+  <script src="js/hero.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
