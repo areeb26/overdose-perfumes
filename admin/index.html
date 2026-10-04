@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Overdose Admin</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#0B0708" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/admin/admin.css" />
+</head>
+<body>
+  <div id="login" class="login">
+    <form class="login__card" id="loginForm">
+      <p class="login__brand">Overdose</p>
+      <h1>Admin</h1>
+      <p class="login__lede">Sign in to edit scents, prices, sets, copy, reviews and shop settings. Saves go live on the storefront.</p>
+      <label class="field">
+        <span>Email</span>
+        <input type="email" name="email" value="admin@overdose.io" autocomplete="username" required autofocus />
+      </label>
+      <label class="field">
+        <span>Password</span>
+        <input type="password" name="password" autocomplete="current-password" required />
+      </label>
+      <p class="login__err" id="loginErr" hidden>Wrong email or password.</p>
+      <button type="submit" class="btn btn--dark">Sign in</button>
+    </form>
+  </div>
+
+  <div id="app" class="app" hidden>
+    <aside class="side">
+      <a class="side__brand" href="/" target="_blank" rel="noopener">
+        <span>Overdose</span>
+        <small>Admin</small>
+      </a>
+      <nav class="side__nav" id="nav">
+        <button type="button" data-view="dash" class="is-on">Dashboard</button>
+        <button type="button" data-view="copy">Site copy</button>
+        <button type="button" data-view="scents">Scents</button>
+        <button type="button" data-view="prices">Prices</button>
+        <button type="button" data-view="sets">Sets</button>
+        <button type="button" data-view="quiz">Scent finder</button>
+        <button type="button" data-view="filters">Filters</button>
+        <button type="button" data-view="reviews">Reviews</button>
+        <button type="button" data-view="faq">FAQ</button>
+        <button type="button" data-view="business">Business</button>
+      </nav>
+      <div class="side__foot">
+        <a class="btn btn--ghost" href="/" target="_blank" rel="noopener">Open store</a>
+        <button type="button" class="btn btn--ghost" id="logout">Log out</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="top">
+        <div>
+          <p class="eyebrow" id="topEyebrow">Dashboard</p>
+          <h1 id="topTitle">Overview</h1>
+        </div>
+        <div class="top__actions">
+          <span class="pill" id="dirtyPill" hidden>Unpublished changes</span>
+          <button type="button" class="btn btn--dark" id="publishBtn">Publish live</button>
+        </div>
+      </header>
+
+      <section class="view" id="view-dash"></section>
+      <section class="view" id="view-copy" hidden></section>
+      <section class="view" id="view-scents" hidden></section>
+      <section class="view" id="view-prices" hidden></section>
+      <section class="view" id="view-sets" hidden></section>
+      <section class="view" id="view-quiz" hidden></section>
+      <section class="view" id="view-filters" hidden></section>
+      <section class="view" id="view-reviews" hidden></section>
+      <section class="view" id="view-faq" hidden></section>
+      <section class="view" id="view-business" hidden></section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="/admin/admin.js"></script>
+</body>
+</html>

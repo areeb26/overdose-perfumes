@@ -22,7 +22,10 @@ A static site (HTML/CSS/JS, no build step) for an online store that sells extrai
 
 Run locally: `python3 -m http.server 5184`
 
-Scents, sizes and prices, sets, quiz questions, reviews and FAQ are in `js/data.js`. The name, WhatsApp number, city, dispatch cutoff, delivery zones, the free-delivery threshold and the gift-wrap price are in `js/config.js`.
+Scents, sizes and prices, sets, quiz questions, reviews and FAQ ship in `js/data.js`. The name, WhatsApp number, city, dispatch cutoff, delivery zones, the free-delivery threshold and the gift-wrap price ship in `js/config.js`.
+
+**Admin (live CMS):** open `/admin` on the deployed site. Sign in with `admin@overdose.io` / `overdose321`. From there you can edit site copy, scents, prices, sets, scent-finder questions, filters, reviews, FAQ and business settings, then **Publish live**. The storefront loads published content from Neon via `/api/content` (falls back to the shipped JS files if the API is down). Locally: `npm i` then `vercel dev`, with env from `.env.local` / `.env.example`.
+
 
 **Product art:** the bottles are drawn in SVG by `js/bottle.js`. It's one house flacon, and each scent changes only the juice colour and code. When the client has real product photos, add `img: 'assets/img/<id>.webp'` to a scent and the cards use the photo instead.
 

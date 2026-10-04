@@ -51,12 +51,12 @@
         <div class="hero__shade" aria-hidden="true"></div>
 
         <div class="chapter chapter--intro" data-in="0" data-out="0.1">
-          <p class="eyebrow"><span class="dot"></span> Extrait strength · Inspired by the icons</p>
-          <h1 class="hero__title">Smell expensive.<br /><em>Pay less.</em></h1>
-          <p class="hero__lede">Our own 30% extrait perfumes, modelled on the designer scents you already love. Testers from Rs 690, cash on delivery anywhere in Pakistan.</p>
+          <p class="eyebrow"><span class="dot"></span> <span data-copy="heroEyebrow">Extrait strength · Inspired by the icons</span></p>
+          <h1 class="hero__title" data-copy="heroTitle">Smell expensive.<br /><em>Pay less.</em></h1>
+          <p class="hero__lede" data-copy="heroLede">Our own 30% extrait perfumes, modelled on the designer scents you already love. Testers from Rs 690, cash on delivery anywhere in Pakistan.</p>
           <div class="hero__cta">
-            <a href="#shop" class="btn btn--light">Shop<span class="hide-xs">&nbsp;the</span>&nbsp;scents</a>
-            <a href="#finder" class="btn btn--ghost">Find my scent</a>
+            <a href="#shop" class="btn btn--light"><span data-copy="heroCta1">Shop the scents</span></a>
+            <a href="#finder" class="btn btn--ghost" data-copy="heroCta2">Find my scent</a>
           </div>
         </div>
 
@@ -119,9 +119,9 @@
     <!-- ============ SHOP ============ -->
     <section class="section shop" id="shop">
       <header class="section__head reveal">
-        <p class="eyebrow">The collection</p>
-        <h2 class="section__title">Twelve icons,<br /><em>re-dosed.</em></h2>
-        <p class="section__lede">Every scent is our own extrait, blended to sit close to the original. Try a 10 ml tester first, or go straight for the 100 ml.</p>
+        <p class="eyebrow" data-copy="shopEyebrow">The collection</p>
+        <h2 class="section__title" data-copy="shopTitle">Twelve icons,<br /><em>re-dosed.</em></h2>
+        <p class="section__lede" data-copy="shopLede">Every scent is our own extrait, blended to sit close to the original. Try a 10 ml tester first, or go straight for the 100 ml.</p>
       </header>
 
       <div class="toolbar" id="toolbar">
@@ -150,9 +150,9 @@
     <section class="finder" id="finder">
       <div class="finder__inner">
         <header class="finder__head reveal">
-          <p class="eyebrow">Scent finder</p>
-          <h2 class="section__title">Four questions.<br /><em>Three matches.</em></h2>
-          <p class="section__lede">Not sure where to start? Tell us who it’s for and how you’ll wear it, and we’ll pick the three scents most likely to become your signature.</p>
+          <p class="eyebrow" data-copy="finderEyebrow">Scent finder</p>
+          <h2 class="section__title" data-copy="finderTitle">Four questions.<br /><em>Three matches.</em></h2>
+          <p class="section__lede" data-copy="finderLede">Not sure where to start? Tell us who it’s for and how you’ll wear it, and we’ll pick the three scents most likely to become your signature.</p>
         </header>
         <div class="quiz reveal" id="quiz" aria-live="polite">
           <div class="quiz__top">
@@ -171,9 +171,9 @@
     <!-- ============ SETS ============ -->
     <section class="section sets" id="sets">
       <header class="section__head reveal">
-        <p class="eyebrow">Discovery sets & gift boxes</p>
-        <h2 class="section__title">Try five.<br /><em>Gift three.</em></h2>
-        <p class="section__lede">Bundled, boxed and cheaper than buying them one by one. Every set can be gift-wrapped with a handwritten card at checkout.</p>
+        <p class="eyebrow" data-copy="setsEyebrow">Discovery sets & gift boxes</p>
+        <h2 class="section__title" data-copy="setsTitle">Try five.<br /><em>Gift three.</em></h2>
+        <p class="section__lede" data-copy="setsLede">Bundled, boxed and cheaper than buying them one by one. Every set can be gift-wrapped with a handwritten card at checkout.</p>
       </header>
       <div class="sets__grid" id="setsGrid"></div>
     </section>
@@ -182,12 +182,12 @@
     <section class="section reviews" id="reviews">
       <header class="section__head reviews__head reveal">
         <div>
-          <p class="eyebrow">Reviews</p>
-          <h2 class="section__title">Side effects:<br /><em>compliments.</em></h2>
+          <p class="eyebrow" data-copy="reviewsEyebrow">Reviews</p>
+          <h2 class="section__title" data-copy="reviewsTitle">Side effects:<br /><em>compliments.</em></h2>
         </div>
         <div class="score">
           <p class="score__num"><b data-count="48" data-div="10">0</b><span>/ 5</span></p>
-          <p class="score__sub">from <b>2,800+</b> orders</p>
+          <p class="score__sub">from <b data-copy="ordersClaim">2,800+</b> orders</p>
           <ul class="bars" id="bars"></ul>
         </div>
       </header>
@@ -197,8 +197,8 @@
     <!-- ============ DELIVERY + FAQ ============ -->
     <section class="section faq" id="faq">
       <header class="section__head reveal">
-        <p class="eyebrow">Delivery & questions</p>
-        <h2 class="section__title">Everywhere in<br /><em>Pakistan.</em></h2>
+        <p class="eyebrow" data-copy="faqEyebrow">Delivery & questions</p>
+        <h2 class="section__title" data-copy="faqTitle">Everywhere in<br /><em>Pakistan.</em></h2>
       </header>
       <div class="faq__grid">
         <div class="zones reveal" id="zones"></div>
@@ -357,6 +357,6 @@
   <script src="js/data.js" defer></script>
   <script src="js/bottle.js" defer></script>
   <script src="js/hero.js" defer></script>
-  <script src="js/app.js" defer></script>
+  <script src="js/admin-bridge.js" defer></script>
 </body>
 </html>
