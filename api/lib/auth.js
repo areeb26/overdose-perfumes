@@ -3,16 +3,23 @@ const crypto = require('crypto');
 const COOKIE = 'od_admin';
 const MAX_AGE = 60 * 60 * 24 * 7; // 7 days
 
+function env(name, fallback = '') {
+  // Trim + strip accidental wrapping quotes from Vercel dashboard pastes.
+  const raw = process.env[name];
+  if (raw == null || raw === '') return fallback;
+  return String(raw).trim().replace(/^['"]|['"]$/g, '');
+}
+
 function secret() {
-  return process.env.ADMIN_SECRET || 'overdose-admin-secret-change-me';
+  return env('ADMIN_SECRET', 'overdose-admin-secret-change-me');
 }
 
 function adminEmail() {
-  return (process.env.ADMIN_EMAIL || 'admin@overdose.io').toLowerCase();
+  return env('ADMIN_EMAIL', 'admin@overdose.io').toLowerCase();
 }
 
 function adminPassword() {
-  return process.env.ADMIN_PASSWORD || 'overdose321';
+  return env('ADMIN_PASSWORD', 'overdose321');
 }
 
 function b64url(buf) {
@@ -86,6 +93,7 @@ function json(res, status, body, headers = {}) {
 
 module.exports = {
   COOKIE,
+  adminEmail,
   checkCredentials,
   makeToken,
   sessionCookie,

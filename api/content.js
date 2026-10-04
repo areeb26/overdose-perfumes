@@ -1,5 +1,6 @@
 const { readSession, json } = require('./lib/auth');
 const { getContent, saveContent } = require('./lib/db');
+const { readJson } = require('./lib/body');
 
 module.exports = async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
@@ -7,11 +8,13 @@ module.exports = async function handler(req, res) {
   if (req.method === 'GET') {
     try {
       const row = await getContent();
-      if (!row) return json(res, 404, { error: 'No content yet' });
+      if (!row) return json(res, 404, { error: 'No content yet — set DATABASE_URL and seed site_content' });
       return json(res, 200, { ...row.data, updatedAt: row.updatedAt });
     } catch (err) {
       console.error(err);
-      return json(res, 500, { error: 'Failed to load content' });
+      return json(res, 500, {
+        error: 'Failed to load content. On this Vercel project, set DATABASE_URL to your Neon connection string, then redeploy.',
+      });
     }
   }
 
@@ -19,9 +22,11 @@ module.exports = async function handler(req, res) {
     const session = readSession(req);
     if (!session) return json(res, 401, { error: 'Unauthorized' });
 
-    let body = req.body;
-    if (typeof body === 'string') {
-      try { body = JSON.parse(body); } catch { return json(res, 400, { error: 'Invalid JSON' }); }
+    let body;
+    try {
+      body = await readJson(req);
+    } catch {
+      return json(res, 400, { error: 'Invalid JSON' });
     }
     if (!body || typeof body !== 'object') return json(res, 400, { error: 'Invalid body' });
 
@@ -45,7 +50,9 @@ module.exports = async function handler(req, res) {
       return json(res, 200, { ok: true, updatedAt });
     } catch (err) {
       console.error(err);
-      return json(res, 500, { error: 'Failed to save content' });
+      return json(res, 500, {
+        error: 'Failed to save content. Check DATABASE_URL on this Vercel project.',
+      });
     }
   }
 
